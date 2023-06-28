@@ -1476,7 +1476,8 @@ namespace Microsoft.MixedReality.Toolkit.UI
                 // Compute mirroring scale
                 {
                     Vector3 p = boundsCorners[i];
-                    visualsScale.transform.localScale = new Vector3(Mathf.Sign(p[0]), Mathf.Sign(p[1]), Mathf.Sign(p[2]));
+                    //visualsScale.transform.localScale = new Vector3(Mathf.Sign(p[0]), Mathf.Sign(p[1]), Mathf.Sign(p[2]));
+					visualsScale.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 }
 
                 // figure out which prefab to instantiate
@@ -1968,7 +1969,8 @@ namespace Microsoft.MixedReality.Toolkit.UI
                 wireframeMaterial.EnableKeyword("_InnerGlow");
                 wireframeMaterial.SetColor("_Color", new Color(0.0f, 0.63f, 1.0f));
                 wireframeMaterial.SetFloat("_InnerGlow", 1.0f);
-                wireframeMaterial.SetFloatArray("_InnerGlowColor", color);
+                //wireframeMaterial.SetFloatArray("_InnerGlowColor", color);
+                wireframeMaterial.SetColor("_InnerGlowColor", new Color(color[0], color[1], color[2], color[3]));
             }
             if (handleMaterial == null && handleMaterial != wireframeMaterial)
             {
@@ -1978,7 +1980,8 @@ namespace Microsoft.MixedReality.Toolkit.UI
                 handleMaterial.EnableKeyword("_InnerGlow");
                 handleMaterial.SetColor("_Color", new Color(0.0f, 0.63f, 1.0f));
                 handleMaterial.SetFloat("_InnerGlow", 1.0f);
-                handleMaterial.SetFloatArray("_InnerGlowColor", color);
+                //handleMaterial.SetFloatArray("_InnerGlowColor", color);
+                handleMaterial.SetColor("_InnerGlowColor", new Color(color[0], color[1], color[2], color[3]));
             }
             if (handleGrabbedMaterial == null && handleGrabbedMaterial != handleMaterial && handleGrabbedMaterial != wireframeMaterial)
             {
@@ -1988,7 +1991,8 @@ namespace Microsoft.MixedReality.Toolkit.UI
                 handleGrabbedMaterial.EnableKeyword("_InnerGlow");
                 handleGrabbedMaterial.SetColor("_Color", new Color(0.0f, 0.63f, 1.0f));
                 handleGrabbedMaterial.SetFloat("_InnerGlow", 1.0f);
-                handleGrabbedMaterial.SetFloatArray("_InnerGlowColor", color);
+                //handleGrabbedMaterial.SetFloatArray("_InnerGlowColor", color);
+				handleGrabbedMaterial.SetColor("_InnerGlowColor", new Color(color[0], color[1], color[2], color[3]));
             }
         }
 

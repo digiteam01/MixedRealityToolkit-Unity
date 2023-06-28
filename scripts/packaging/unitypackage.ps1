@@ -58,11 +58,11 @@
 #>
 param(
     [string]$OutputDirectory = ".\artifacts",
-    [string]$RepoDirectory = ".",
+    [string]$RepoDirectory = "..\\..",
     [string]$LogDirectory,
-    [string]$UnityDirectory,
+    [string]$UnityDirectory = "C:\Program Files\Unity\Hub\Editor\2021.3.26f1\Editor",
     [ValidatePattern("^\d+\.\d+\.\d+-?[a-zA-Z0-9\.]*$")]
-    [string]$PackageVersion,
+    [string]$PackageVersion="2.8.3",
     [switch]$Clean,
     [switch]$Verbose
 )
@@ -90,15 +90,15 @@ $packages = @{
     "Extensions" = @(
         "Assets\MRTK\Extensions"
     );
-    "Examples" = @(
-        "Assets\MRTK\Examples"
-    );
+    #"Examples" = @(
+    #    "Assets\MRTK\Examples"
+    #);
     "Tools" = @(
         "Assets\MRTK\Tools"
     );
-    "TestUtilities" = @(
-        "Assets\MRTK\Tests\TestUtilities"
-    );
+    #"TestUtilities" = @(
+    #    "Assets\MRTK\Tests\TestUtilities"
+    #);
 }
 
 function GetPackageVersion() {
